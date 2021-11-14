@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AccueilComponent } from './accueil/accueil.component';
 import { AgentPanelComponent } from './agent-panel/agent-panel.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AjouterplatsComponent } from './home/ajouterplats/ajouterplats.component';
@@ -11,7 +12,9 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'/user/login',pathMatch:'full'},
+  {path:'',redirectTo:'/accueil',pathMatch:'full'},
+  {path:'accueil',component:AccueilComponent},
+
   {
     path:'user',component:UserComponent,
   children:[

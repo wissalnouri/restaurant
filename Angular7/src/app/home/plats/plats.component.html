@@ -1,9 +1,31 @@
-<div class="card m-5" style="width:18rem" >
-  <ul class="list-group" *ngFor="let plat of platsDetalis">
-    <li class="list-group-item"><strong>nom: </strong>{{plat.nom}} </li>
-    <li class="list-group-item"><strong>prix: </strong>{{plat.prix}} </li>
-    <li class="list-group-item"><strong>image: </strong>{{plat.image}} </li>
-    <li class="list-group-item"><strong>description: </strong>{{plat.description}} </li>
-  </ul>
-</div>
 
+<!-- On tables -->
+<table class="table-primary" style="width:18rem">
+  <tr class="table-primary">
+  <th>nom</th>
+  <th>prix</th>
+  
+  <th>description</th>
+  <th>image</th>
+  <th>Action</th>
+</tr>
+<tr *ngFor="let plat of platsDetalis">
+  <td class="table-dark">{{plat.nom}}</td>
+  <td class="table-dark">{{plat.prix}}</td>
+  <td class="table-dark">{{plat.description}}</td>
+  <td class="table-dark">{{plat.image}}</td>
+  <td class="table-dark"><button type="button" class="btn btn-success" (click)="onDelete(plat.id)">Supprimetr</button> <button type="button" class="btn btn-success" >Modifeir</button>
+    <button type="button" class="btn btn-success" (click)="onSubmit(plat.id)">Afficher</button></td>
+</tr>
+</table>
+<div class="col-sm-6">
+  <div class="card" style="width:30rem" *ngIf="platsbyid">
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Objet : </strong>{{platsbyid.nom}} </li>
+        <li class="list-group-item"><strong>Date : </strong>{{platsbyid.prix}} </li>
+        <li class="list-group-item"><strong>Description : </strong>{{platsbyid.description}} </li>
+        <li class="list-group-item"><strong>image : </strong>{{platsbyid.image}} </li></ul>
+      </div>
+    </div>
+  </div>

@@ -17,6 +17,7 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { PlatsComponent } from './home/plats/plats.component';
 import { ProfilComponent } from './home/profil/profil.component';
 import { AjouterplatsComponent } from './home/ajouterplats/ajouterplats.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AjouterplatsComponent } from './home/ajouterplats/ajouterplats.componen
     ForbiddenComponent,
     PlatsComponent,
     ProfilComponent,
-    AjouterplatsComponent
+    AjouterplatsComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

@@ -32,4 +32,27 @@ export class PlatsService {
     return this.http.post(this.BaseURI + '/plats', body);
   }
 
+  deletePlat(id){
+    
+    return this.http.delete(this.BaseURI+ '/plats/' + id);
+  }
+
+  editPlat(d){
+    var body = {
+      id : d,
+      nom: this.formModel.value.Nom,    
+      description:this.formModel.value.Description,
+      prix:this.formModel.value.Prix,
+      image:this.formModel.value.Image
+    
+    };
+    
+    return this.http.put(this.BaseURI + '/plats/' + d, body);
+  }
+  getPlatsById(id){
+    
+    return this.http.get(this.BaseURI+ '/plats/' + id);
+  }
+  
+
 }

@@ -11,6 +11,7 @@ export class PlatsComponent implements OnInit {
 
   constructor(private router:Router,private service:PlatsService) { }
   platsDetalis;
+  platsbyid
   ngOnInit() {
     this.service.getPlats().subscribe(
       res =>{
@@ -22,5 +23,41 @@ export class PlatsComponent implements OnInit {
 
     );
   }
+  onDelete(d) {
+    this.service.deletePlat(d).subscribe(
+      res =>{
+        this.platsDetalis= res;
+        location.reload();
+        
+      },
+      err =>{
+        console.log(err);
+      }
+
+    );
+  }
+  onSubmit(d){
+    
+    this.service.getPlatsById(d).subscribe(
+    res =>{
+      this.platsbyid = res;
+    },
+    err =>{
+      console.log(err);
+    }
+  
+
+  );
+
+
+}
+s2;
+onSubmit2(){
+ 
+    
+  
+
+
+}
 
 }
