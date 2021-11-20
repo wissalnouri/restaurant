@@ -21,5 +21,7 @@ namespace WebApplication1.Data
         public DbSet<WebApplication1.Models.drinks> drinks { get; set; }
 
         public DbSet<WebApplication1.Models.dessert> dessert { get; set; }
+
+        public DbSet<WebApplication1.Models.commande> commande { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Data;
 
 namespace WebApplication1.Migrations.Ticket
 {
     [DbContext(typeof(TicketContext))]
-    partial class TicketContextModelSnapshot : ModelSnapshot
+    [Migration("20211120104753_m22")]
+    partial class m22
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,6 +90,9 @@ namespace WebApplication1.Migrations.Ticket
 
                     b.Property<string>("dateCommande")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("idPlat")
+                        .HasColumnType("int");
 
                     b.Property<string>("nomUser")
                         .HasColumnType("nvarchar(max)");

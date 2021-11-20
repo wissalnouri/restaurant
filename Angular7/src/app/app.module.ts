@@ -18,6 +18,8 @@ import { PlatsComponent } from './home/plats/plats.component';
 import { ProfilComponent } from './home/profil/profil.component';
 import { AjouterplatsComponent } from './home/ajouterplats/ajouterplats.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { AjouterDrinkComponent } from './home/ajouter-drink/ajouter-drink.component';
+import { DrinksComponent } from './home/drinks/drinks.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AccueilComponent } from './accueil/accueil.component';
     PlatsComponent,
     ProfilComponent,
     AjouterplatsComponent,
-    AccueilComponent
+    AccueilComponent,
+    AjouterDrinkComponent,
+    DrinksComponent
   ],
   imports: [
     BrowserModule,

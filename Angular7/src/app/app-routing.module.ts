@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AgentPanelComponent } from './agent-panel/agent-panel.component';
 import { AuthGuard } from './auth/auth.guard';
+import { AjouterDrinkComponent } from './home/ajouter-drink/ajouter-drink.component';
 import { AjouterplatsComponent } from './home/ajouterplats/ajouterplats.component';
+import { DrinksComponent } from './home/drinks/drinks.component';
 import { HomeComponent } from './home/home.component';
 import { PlatsComponent } from './home/plats/plats.component';
 import { ProfilComponent } from './home/profil/profil.component';
@@ -24,7 +26,7 @@ const routes: Routes = [
 },
 {path:'home',component:HomeComponent,canActivate:[AuthGuard],
 children: [
-  { path: 'plats', component: PlatsComponent },{ path: 'profil', component: ProfilComponent },{ path: 'ajouterplats', component: AjouterplatsComponent ,canActivate:[AuthGuard],data :{permittedRoles:['Agent'] }}]
+  { path: 'plats', component: PlatsComponent },{ path: 'profil', component: ProfilComponent },{ path: 'ajouterplats', component: AjouterplatsComponent ,canActivate:[AuthGuard],data :{permittedRoles:['Agent'] }},{ path: 'ajouter-drink', component: AjouterDrinkComponent ,canActivate:[AuthGuard],data :{permittedRoles:['Agent'] }},{ path: 'drinks', component: DrinksComponent }]
 },
 {path:'agentpanel',component:AgentPanelComponent,canActivate:[AuthGuard],data :{permittedRoles:['Agent']}}
 ];

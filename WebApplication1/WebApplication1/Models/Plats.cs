@@ -14,5 +14,7 @@ namespace WebApplication1.Models
         public string prix { get; set; }
         public string image { get; set; }
         public string  description { get; set; }
+        public ICollection<commande> commande { get; set; }
+       
     }
 }

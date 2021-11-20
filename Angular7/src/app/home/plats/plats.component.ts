@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PlatsService } from 'src/app/shared/plats.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-plats',
@@ -9,7 +10,7 @@ import { PlatsService } from 'src/app/shared/plats.service';
 })
 export class PlatsComponent implements OnInit {
 
-  constructor(private router:Router,private service:PlatsService) { }
+  constructor(private router:Router,private service:PlatsService,private uService:UserService) { }
   platsDetalis;
   platsbyid
   ngOnInit() {
@@ -51,13 +52,37 @@ export class PlatsComponent implements OnInit {
 
 
 }
-s2;
-onSubmit2(){
- 
+
+onEdit(d){
+  this.service.editPlat(d).subscribe(
+    (res: any) => {
+      
+     
+        this.service.formModel.reset();
+        //this.toastr.success('New user created!', 'Registration successful.');
+    },
+        err => {
+          console.log(err);
+        }
     
-  
+  );
+}
+platsbyid2;
+onSubmit2(d){
+    
+  this.service.getPlatsById(d).subscribe(
+  res =>{
+    this.platsbyid2 = res;
+  },
+  err =>{
+    console.log(err);
+  }
+
+
+);
 
 
 }
+
 
 }

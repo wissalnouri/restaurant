@@ -16,8 +16,14 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/home/plats">Plats</a>
       </li> 
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home/drinks">Drinks</a>
+      </li> 
       <li class="nav-item" *ngIf="service.roleMatch(['Agent'])">
         <a class="nav-link" routerLink="/home/ajouterplats">Ajouter Plats</a>
+      </li> 
+      <li class="nav-item" *ngIf="service.roleMatch(['Agent'])">
+        <a class="nav-link" routerLink="/home/ajouter-drink">Ajouter Drinks</a>
       </li> 
     </ul>
     <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>

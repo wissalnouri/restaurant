@@ -5,14 +5,14 @@ import { FormBuilder } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
-export class PlatsService {
+export class DrinkService {
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
   readonly BaseURI = 'https://localhost:44319/api';
 
-  getPlats(){
+  getDrinks(){
     
-    return this.http.get(this.BaseURI+ '/plats');
+    return this.http.get(this.BaseURI+ '/drinks');
   }
   formModel = this.fb.group({
     Nom: [''],
@@ -20,39 +20,44 @@ export class PlatsService {
     Image: [''],
     Description: [''],
   });
-  PostPlats() {
+  PostDrinks() {
     
     var body = {
+      nom: this.formModel.value.Nom,    
+      description:this.formModel.value.Description,
+     
+      image:this.formModel.value.Image
+    
+    };
+    return this.http.post(this.BaseURI + '/drinks', body);
+  }
+
+  deleteDrinks(id){
+    
+    return this.http.delete(this.BaseURI+ '/drinks/' + id);
+  }
+
+  editDrinks(d){
+    var body = {
+      id : d,
       nom: this.formModel.value.Nom,    
       description:this.formModel.value.Description,
       prix:this.formModel.value.Prix,
       image:this.formModel.value.Image
     
     };
-    return this.http.post(this.BaseURI + '/plats', body);
+    
+    return this.http.put(this.BaseURI + '/drinks/' + d, body);
+  }
+  getDrinksById(id){
+    
+    return this.http.get(this.BaseURI+ '/drinks/' + id);
   }
 
-  deletePlat(id){
-    
-    return this.http.delete(this.BaseURI+ '/plats/' + id);
-  }
+  
 
-  editPlat(d){
-    var body = {
-      id : d,
-      nom: this.formModel.value.Nom,    
-      description:this.formModel.value.Description,
-      prix:this.formModel.value.Prix,
-      image:"this.formModel.value.Image"
-    
-    };
-    
-    return this.http.put(this.BaseURI + '/plats/' + d, body);
-  }
-  getPlatsById(id){
-    
-    return this.http.get(this.BaseURI+ '/plats/' + id);
-  }
+  
+  
   
 
 }
